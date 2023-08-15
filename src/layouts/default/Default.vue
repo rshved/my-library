@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <default-view />
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script setup>
-  import DefaultView from './View.vue'
+
 </script>
