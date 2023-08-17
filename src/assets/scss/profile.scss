@@ -1,0 +1,17 @@
+.profile-wrap {
+  padding: 40px;
+  .hidden-input {
+    max-width: 24px;
+    opacity: 1;
+    :deep(.v-input__control) {
+      display: none;
+    }
+  }
+  .camera-btn {
+    opacity: 0.6;
+    :deep(.v-btn__overlay, .v-btn__underlay) {
+      display: none;
+    }
+  }
+
+}

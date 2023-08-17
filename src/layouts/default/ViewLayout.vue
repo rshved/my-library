@@ -13,7 +13,7 @@
     >
       <v-list>
         <v-list-item
-          prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+          prepend-avatar="@/assets/avatar.jpeg"
           title="Sandra Adams"
           subtitle="sandra_a88@gmailcom"
         ></v-list-item>
@@ -22,26 +22,15 @@
       <v-divider></v-divider>
 
       <v-list density="compact" nav>
-        <v-list-item prepend-icon="mdi-folder" :title="$t('profile')" value="myfiles"></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-folder"
+          :title="$t('profile')"
+          value="myfiles"
+          @click="$router.push('/profile')"
+        ></v-list-item>
         <v-list-item prepend-icon="mdi-account-multiple" :title="$t('library')" value="shared"></v-list-item>
       </v-list>
     </v-navigation-drawer>
-<!--    <v-navigation-drawer v-if="isSmallScreen" v-model="drawer" app>-->
-<!--      <v-list>-->
-<!--        <v-list-item-->
-<!--          prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"-->
-<!--          title="Sandra Adams"-->
-<!--          subtitle="sandra_a88@gmailcom"-->
-<!--        ></v-list-item>-->
-<!--      </v-list>-->
-
-<!--      <v-divider></v-divider>-->
-
-<!--      <v-list density="compact" nav>-->
-<!--        <v-list-item prepend-icon="mdi-folder" :title="$t('profile')" value="myfiles"></v-list-item>-->
-<!--        <v-list-item prepend-icon="mdi-account-multiple" :title="$t('library')" value="shared"></v-list-item>-->
-<!--      </v-list>-->
-<!--    </v-navigation-drawer>-->
 
     <v-main>
       <router-view></router-view>
@@ -62,7 +51,6 @@ const isSmallScreen = computed(() => {
 
 onMounted(() => {
   if(!isSmallScreen.value) {
-    console.log('rewrewqr')
     drawer.value = true
   }
 })
