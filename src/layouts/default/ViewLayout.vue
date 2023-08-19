@@ -24,11 +24,17 @@
       <v-list density="compact" nav>
         <v-list-item
           prepend-icon="mdi-folder"
+          :title="$t('library')"
+          value="shared"
+          @click="$router.push('/')"
+        ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-account-multiple"
           :title="$t('profile')"
           value="myfiles"
           @click="$router.push('/profile')"
         ></v-list-item>
-        <v-list-item prepend-icon="mdi-account-multiple" :title="$t('library')" value="shared"></v-list-item>
+
       </v-list>
     </v-navigation-drawer>
 
