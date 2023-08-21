@@ -1,7 +1,10 @@
 <template>
   <v-row class="profile-wrap">
-    <v-col>
+    <v-col cols="12" class="d-flex justify-space-between align-center">
       <h1 class="mb-5">Basic data</h1>
+      <v-btn>Save</v-btn>
+    </v-col>
+    <v-col>
       <div class="d-flex align-center">
         <v-avatar class="mr-2" :image="avatarURL" size="64"></v-avatar>
         <v-file-input

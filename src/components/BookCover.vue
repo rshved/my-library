@@ -1,8 +1,9 @@
 <template>
   <v-card
     :loading="loading"
-    class="mx-auto my-12 pa-3"
+    class="mx-auto pa-3"
     max-width="374"
+    rounded="lg"
   >
     <template v-slot:loader="{ isActive }">
       <v-progress-linear
@@ -15,7 +16,7 @@
 
     <v-img
       contain
-      height="250"
+      height="100"
       :src="props.image"
     ></v-img>
 
@@ -46,11 +47,7 @@
         </div>
       </v-row>
 
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
-      </div>
-
-      <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
+      <div class="mt-3">Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
     </v-card-text>
 
     <v-divider class="mx-4 mb-1"></v-divider>
