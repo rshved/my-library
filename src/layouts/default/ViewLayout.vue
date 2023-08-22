@@ -36,7 +36,7 @@
         ></v-list-item>
       </v-list>
       <v-divider></v-divider>
-      <v-list>
+      <v-list density="compact" nav>
         <v-list-item
           :prepend-icon="mode === 'dark' ? 'mdi-white-balance-sunny' : 'mdi-moon-waning-crescent'"
           :title="mode === 'dark' ? 'Light mode' : 'Dark mode'"
