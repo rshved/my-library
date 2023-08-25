@@ -1,0 +1,17 @@
+.auth-block {
+  min-width: 300px;
+  @media (min-width: 767px) {
+    min-width: 400px;
+  }
+
+  .auth-title {
+    margin-bottom: 20px;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 16px;
+  }
+}

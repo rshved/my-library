@@ -1,5 +1,56 @@
 <template>
-  <div>Register</div>
+  <div class="auth-block">
+    <h1 class="auth-title">Registration</h1>
+    <v-text-field
+      label="E-mail"
+      v-model="email"
+      variant="outlined"
+      prepend-inner-icon="mdi-email-outline"
+      type="email"
+      placeholder="testmail@gmail.com"
+    >
+    </v-text-field>
+    <v-text-field
+      v-model="password"
+      label="Password"
+      :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
+      :type="visible ? 'text' : 'password'"
+      placeholder="Enter your password"
+      prepend-inner-icon="mdi-lock-outline"
+      variant="outlined"
+      @click:append-inner="visible = !visible"
+    ></v-text-field>
+    <v-text-field
+      v-model="repeatPassword"
+      label="Repeat password"
+      :append-inner-icon="visibleRepeat ? 'mdi-eye-off' : 'mdi-eye'"
+      :type="visibleRepeat ? 'text' : 'password'"
+      placeholder="Please repeat your password"
+      prepend-inner-icon="mdi-lock-outline"
+      variant="outlined"
+      @click:append-inner="visibleRepeat = !visibleRepeat"
+    ></v-text-field>
+    <v-btn size="large" class="w-100" @click="login">Register</v-btn>
+    <v-btn class="w-100 mt-3" @click="login">Login</v-btn>
+
+  </div>
 </template>
 
-<script setup></script>
+<script setup>
+import {useUserStore} from "@/store/user";
+import {ref} from "vue";
+
+const email = ref('')
+const password = ref('')
+const repeatPassword = ref('')
+const visible = ref(false)
+const visibleRepeat = ref(false)
+
+const login = () => {
+  useUserStore().loginUser('huy')
+}
+</script>
+
+<style lang="scss" scoped>
+@import "@/assets/scss/auth-components";
+</style>
