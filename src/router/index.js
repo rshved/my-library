@@ -1,7 +1,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 import ViewLayout from "@/layouts/default/ViewLayout.vue";
-import Home from "@/views/LibraryView.vue";
+import AuthLayout from "@/layouts/default/AuthLayout.vue";
+import Library from "@/views/LibraryView.vue";
+import AuthView from "@/views/AuthView.vue";
 
 const routes = [
   {
@@ -10,11 +12,11 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
+        name: 'Library',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: Home,
+        component: Library,
       },
       {
         path: 'profile',
@@ -23,10 +25,21 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/auth',
+    component: AuthLayout,
+    children: [
+      {
+        path: '',
+        name: 'Auth',
+        component: AuthView
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 
