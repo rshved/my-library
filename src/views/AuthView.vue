@@ -1,7 +1,14 @@
 <template>
   <div class="auth-wrap">
-    <LoginComponent v-if="isLogin" />
-    <RegisterComponent v-if="isRegister" />
+    <LoginComponent
+      v-if="isLogin"
+      @toRegister = "isRegister = true"
+      @toReset = "isReset = true"
+    />
+    <RegisterComponent
+      v-if="isRegister"
+      @toLogin="isLogin = true"
+    />
     <ResetPasswordComponent v-if="isReset" />
   </div>
 </template>

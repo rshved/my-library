@@ -7,11 +7,8 @@ export const useUserStore = defineStore('app', {
     //
   }),
   actions: {
-    async registerValidateCode(payload) {
-      return await axios.post('/user/email/validate/code/', payload)
-    },
     async registerUser(payload) {
-      return await axios.post('/user/registration/finish/', payload);
+      return await axios.post('/user/registration/email/', payload);
     },
     async loginUser(payload) {
       return await axios.post('/user/auth/email/', payload)

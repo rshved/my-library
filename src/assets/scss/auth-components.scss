@@ -1,7 +1,11 @@
 .auth-block {
-  min-width: 300px;
+  width: 300px;
   @media (min-width: 767px) {
-    min-width: 400px;
+    width: 350px;
+  }
+
+  @media (min-width: 1800px) {
+    width: 400px;
   }
 
   .auth-title {

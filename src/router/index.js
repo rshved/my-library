@@ -9,13 +9,11 @@ const routes = [
   {
     path: '/',
     component: ViewLayout,
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
         name: 'Library',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: Library,
       },
       {
@@ -42,5 +40,21 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('accessToken')
+
+  const requiresAuth = to.matched.some((route) => route.meta.requiresAuth);
+
+  if (requiresAuth && !isAuthenticated) {
+    // If the route requires authentication and the user is not authenticated,
+    // redirect to the authentication page
+    next('/auth');
+  }
+  else {
+    // Otherwise, proceed to the next route
+    next();
+  }
+});
 
 export default router

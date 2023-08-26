@@ -43,6 +43,14 @@
           @click="toggleTheme"
         ></v-list-item>
       </v-list>
+      <v-divider></v-divider>
+      <v-list density="compact" nav>
+        <v-list-item
+          prepend-icon="mdi-logout"
+          title="Log out"
+          @click="logout"
+        ></v-list-item>
+      </v-list>
     </v-navigation-drawer>
 
     <v-main>
@@ -53,8 +61,11 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import {useRouter} from "vue-router";
 import { useDisplay } from 'vuetify'
 import { useTheme } from 'vuetify'
+
+const router = useRouter()
 
 const theme = useTheme()
 const { mdAndDown } = useDisplay()
@@ -78,6 +89,12 @@ const toggleTheme = () => {
   mode.value = mode.value === 'dark' ? 'light' : 'dark'
   theme.global.name.value = mode.value
   localStorage.setItem('theme', mode.value)
+}
+
+const logout = () => {
+  localStorage.removeItem('accessToken')
+  localStorage.removeItem('refreshToken')
+  router.push('/auth')
 }
 </script>
 
